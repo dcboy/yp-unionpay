@@ -193,7 +193,7 @@ class UnionPay {
         publicKey: data.cert,
       }
     } catch (e) {
-
+      throw e;
     }
 
     return false

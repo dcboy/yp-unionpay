@@ -1,6 +1,6 @@
 {
   "name": "yp-unionpay",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "unionpay sdk",
   "main": "index.js",
   "scripts": {

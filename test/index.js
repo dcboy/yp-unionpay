@@ -35,6 +35,7 @@ const UnionPay = require('../src/unionpay');
   // config.newAppTransUrl = 'https://gateway.test.95516.com/gateway/api/newAppTransReq.do';
 
   let pfxBuffer = fs.readFileSync(path.resolve(`./config/898440353313553.pfx`));
+  console.log(pfxBuffer.toString('base64'))
   const config = await UnionPay.processPfx(pfxBuffer, Config.password);
   config.merId = "898440353313553";
 
