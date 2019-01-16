@@ -1,8 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const pem = require('pem-promise');
-const wopenssl = require('wopenssl');
-const BigInt = require('big-integer');
 const Config = require('../config/');
 const UnionPay = require('../src/unionpay');
 
@@ -38,18 +35,19 @@ const UnionPay = require('../src/unionpay');
   // config.newAppTransUrl = 'https://gateway.test.95516.com/gateway/api/newAppTransReq.do';
 
   let pfxBuffer = fs.readFileSync(path.resolve(`./config/898440353313553.pfx`));
-  console.log(pfxBuffer.toString('base64'));
+  // console.log(pfxBuffer.toString('base64'));
   const config = await UnionPay.processPfx(pfxBuffer, Config.password);
   config.merId = "898440353313553";
 
   const unionPay = new UnionPay(config);
 
-  // const response = await unionPay.createQRCodeOrder({
-  //   txnAmt: 1,
-  //   orderId: (new Date()).getTime().toString(),
-  //   backUrl: 'http://6a3fdecd.ngrok.yopoint.cc:81/unionpay/gateway/notify/5c3eeaeccb2e21b9b64f35e0',
-  //   appUserId: 'n8xBMa+IhTa3ZJ4fkU1BMbyFuQ2iYNeFadgzEEhOFe/jNwIBjM/rLR6U+nrM0jLk',
-  // });
+  const response = await unionPay.createQRCodeOrder({
+    txnAmt: 1,
+    orderId: (new Date()).getTime().toString(),
+    backUrl: 'http://6a3fdecd.ngrok.yopoint.cc:81/unionpay/gateway/notify/5c3eeaeccb2e21b9b64f35e0',
+    appUserId: 'n8xBMa+IhTa3ZJ4fkU1BMbyFuQ2iYNeFadgzEEhOFe/jNwIBjM/rLR6U+nrM0jLk',
+  });
+  console.log(response);
 
   // const response = await unionPay.getAppUpIdentifier({
   //   userAuthCode: 'uskMsSXHS1KBLHZ90+iDzA==',
@@ -104,12 +102,12 @@ const UnionPay = require('../src/unionpay');
     * 	signature: 'hJdB17OMvw2XfwyprXtsaTR5A35q/FdAzvqy0sATK+aZTmHdqTQDe/buz8gAlXf4FGibgr/2aYusRXSkaLHd7GTHpkFkLsqgjWWKSQDr+o/SvLjN8YrgEr4VYv2SOM9yKDjdTlIn+E0BpbVAX1VeD+aeYolDJXbSbCdM3KiPSyW07ofHfDZREzl2AA6zyY6Nc1uheS/GhpwA51cLd5QOsEL0/B+PqQPxpXjHIeGZTTMt9R5j7FRjdX2qH+F8XFML0auAHNdRcjTCUnH1GSoNPbyGzhPcnzBqkhChX1adyMc4HtdAfH4jOdAV4Oji9cvTFuWzg7R88ugF8VOobgLzvQ=='
     * }
   */
-  const response = await unionPay.refunds({
-    txnAmt: 1,
-    orderId: (new Date()).getTime().toString(),
-    backUrl: 'http://6a3fdecd.ngrok.yopoint.cc:81/unionpay/gateway/notify/5c3eeaeccb2e21b9b64f35e0',
-    origQryId: '151901161705179895688',
-  });
+  // const response = await unionPay.refunds({
+  //   txnAmt: 1,
+  //   orderId: (new Date()).getTime().toString(),
+  //   backUrl: 'http://6a3fdecd.ngrok.yopoint.cc:81/unionpay/gateway/notify/5c3eeaeccb2e21b9b64f35e0',
+  //   origQryId: '151901161705179895688',
+  // });
 
   /** 退款回调
 {
@@ -138,5 +136,4 @@ const UnionPay = require('../src/unionpay');
 	"signature": "dewRNymSV8xSidMrY2/q0wuQpvmkSZIWhD1C4HXQYPyg6bDzCAiAKFlacEY7IR9fw3mnNU+W5opO6SwZ59fsiOWovbwpiFhNQmPdNImA+5gk6swWNW2KsHdkcWvG5WMIYscTF7beC0Dk2AfmyrqNxCptfC2H1xWuId57KD50j6PbXkEpxP/O+P+rsbfIFjB8mcEospyeI6cBjGnN3n1WCxD/FhIu7mpx2rSt1E+nbCOMu4x7kFFGtc+CAJtIJLhfn3k8Y9MpTV3stS1bfotxocjwh6xt9jqS1VCbEigV8byI7SD1ffG7xQEyG69ix2hpthgOVKKateTujXvSoj/E0A=="
 }
   */
-  console.log(response);
 })();

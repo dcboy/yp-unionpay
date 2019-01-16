@@ -87,6 +87,19 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@fidm/asn1@^1.0.3":
+  version "1.0.3"
+  resolved "http://registry.npm.taobao.org/@fidm/asn1/download/@fidm/asn1-1.0.3.tgz#9f7b54aaf27cb0633c818699e1c534b30bf64b32"
+  integrity sha1-n3tUqvJ8sGM8gYaZ4cU0swv2SzI=
+
+"@fidm/x509@^1.2.0":
+  version "1.2.0"
+  resolved "http://registry.npm.taobao.org/@fidm/x509/download/@fidm/x509-1.2.0.tgz#ed16647a514b43da04845a859fdc3f236a8bc1ad"
+  integrity sha1-7RZkelFLQ9oEhFqFn9w/I2qLwa0=
+  dependencies:
+    "@fidm/asn1" "^1.0.3"
+    tweetnacl "^1.0.0"
+
 abbrev@1:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/abbrev/download/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -355,6 +368,15 @@ babel-helper-define-map@^6.24.1:
     babel-runtime "^6.26.0"
     babel-types "^6.26.0"
     lodash "^4.17.4"
+
+babel-helper-explode-assignable-expression@^6.24.1:
+  version "6.24.1"
+  resolved "http://registry.npm.taobao.org/babel-helper-explode-assignable-expression/download/babel-helper-explode-assignable-expression-6.24.1.tgz#f25b82cf7dc10433c55f70592d5746400ac22caa"
+  integrity sha1-8luCz33BBDPFX3BZLVdGQArCLKo=
+  dependencies:
+    babel-runtime "^6.22.0"
+    babel-traverse "^6.24.1"
+    babel-types "^6.24.1"
 
 babel-helper-function-name@^6.24.1:
   version "6.24.1"
@@ -2077,11 +2099,6 @@ mute-stream@0.0.7:
   resolved "http://registry.npm.taobao.org/mute-stream/download/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
 
-nan@2.2.0:
-  version "2.2.0"
-  resolved "http://registry.npm.taobao.org/nan/download/nan-2.2.0.tgz#779c07135629503cf6a7b7e6aab33049b3c3853c"
-  integrity sha1-d5wHE1YpUDz2p7fmqrMwSbPDhTw=
-
 nan@^2.9.2:
   version "2.10.0"
   resolved "http://registry.npm.taobao.org/nan/download/nan-2.10.0.tgz#96d0cd610ebd58d4b4de9cc0c6828cda99c7548f"
@@ -2903,6 +2920,11 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "http://registry.npm.taobao.org/tweetnacl/download/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
+tweetnacl@^1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/tweetnacl/download/tweetnacl-1.0.0.tgz#713d8b818da42068740bf68386d0479e66fc8a7b"
+  integrity sha1-cT2LgY2kIGh0C/aDhtBHnmb8ins=
+
 type-check@~0.3.2:
   version "0.3.2"
   resolved "http://registry.npm.taobao.org/type-check/download/type-check-0.3.2.tgz#5884cab512cf1d355e3fb784f30804b2b520db72"
@@ -2974,13 +2996,6 @@ wide-align@^1.1.0:
   integrity sha1-rgdOa9wMFKQx6ATmJFScYzsABFc=
   dependencies:
     string-width "^1.0.2 || 2"
-
-wopenssl@^0.3.1:
-  version "0.3.1"
-  resolved "http://registry.npm.taobao.org/wopenssl/download/wopenssl-0.3.1.tgz#c5539db1423fd70049c788dd83e5d2805aec26a8"
-  integrity sha1-xVOdsUI/1wBJx4jdg+XSgFrsJqg=
-  dependencies:
-    nan "2.2.0"
 
 wordwrap@~1.0.0:
   version "1.0.0"

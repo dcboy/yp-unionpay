@@ -1,6 +1,5 @@
 import crypto from 'crypto';
 import BigInt from 'big-integer';
-import querystring from 'querystring';
 
 var utils = {
   createLinkString (params, encode, status) {
