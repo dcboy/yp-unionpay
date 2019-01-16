@@ -82,15 +82,7 @@ class UnionPay {
     })
   }
 
-  /** 
-   * 校验回调参数
-  */
-  validNotify (params) {
-    if (!params) {
-      return false;
-    }
-    return util.verify(params)
-  }
+
 
   refunds (params) {
     return new Promise((resolve, reject) => {
@@ -173,6 +165,16 @@ class UnionPay {
         return reject(new Error(`生成订单时候发生错误:${ex}`));
       }
     });
+  }
+
+  /** 
+   * 校验回调参数
+  */
+  static verifyNotify (params) {
+    if (!params) {
+      return false;
+    }
+    return util.verify(params)
   }
 
   /** 
