@@ -82,6 +82,16 @@ class UnionPay {
     })
   }
 
+  /** 
+   * 校验回调参数
+  */
+  validNotify (params) {
+    if (!params) {
+      return false;
+    }
+    return util.verify(params)
+  }
+
   /**
   * @description 创建支付订单的操作
   */
@@ -125,51 +135,6 @@ class UnionPay {
       }
     });
   }
-
-  // /**
-  //  * @description 查询订单交易状态的操作
-  //  * @param {String} orderIdNo  - 用户支付订单号
-  //  * @param {String} txnTime    - 订单提交到银联的时间，需要格式为YYYYMMDDHHmmss
-  //  */
-  // query(orderIdNo, txnTime) {
-  //   return new Promise((resolve, reject) => {
-  //     const necessaryParams = {
-  //       version: '5.1.0',
-  //       encoding: 'utf-8',
-  //       signMethod: '01',
-  //       txnType: '00',
-  //       txnSubType: '00',
-  //       bizType: '000000',
-  //       accessType: '0',
-  //       channelType: '07',
-  //       orderId: orderIdNo,
-  //       merId: this.config.merId,
-  //       txnTime: txnTime,
-  //       certId: this.config.certId,
-  //     };
-  //     const result = signHelper.signatureGenerate(necessaryParams, this.config.privateKey);
-  //     try {
-  //       request.post(this.config.queryTransUrl, { form: result }, (err, response, body) => {
-  //         const splitedString = body.split('&');
-  //         const paramsObject = utilities.transferParams(splitedString);
-  //         console.log(paramsObject)
-  //         return resolve(paramsObject);
-  //       });
-  //     } catch (ex) {
-  //       return reject(new Error('查询订单时候发生错误'));
-  //     }
-  //     return true;
-  //   });
-  // }
-
-  // /**
-  //  * @description 用来验证银联回调签名
-  //  * @param {Object} params    - 支付成功之后银联回调的数据
-  //  */
-  // verifyCallback(params) {
-  //   this.result = verify.verify(params);
-  //   return this.result;
-  // }
 
   /** 
    * @description 转换证书
