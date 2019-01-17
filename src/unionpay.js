@@ -185,7 +185,9 @@ class UnionPay {
       // 解析证书
       const data = await pem.readPkcs12(pfxBuffer, { p12Password: password });
       const certData = Certificate.fromPEM(data.cert);
-      const certId = certData.serialNumber;
+      const certId = util.hexToDecimal(certData.serialNumber);
+
+      console.log(certId);
 
       return {
         certId,
